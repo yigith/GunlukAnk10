@@ -3,6 +3,13 @@
     ViewData["Title"] = "Gönderiler";
 }
 
+@if (ViewBag.Mesaj != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Mesaj
+    </div>
+}
+
 <table class="table table-striped" id="table">
     <thead>
         <tr>
@@ -19,9 +26,11 @@
             <tr>
                 <td>@item.Id</td>
                 <td>@item.Baslik</td>
-                <td>@(item.Icerik.Length > 40 
-                    ? item.Icerik.Remove(40) + "..." 
-                    : item.Icerik ) </td>
+                <td>
+                    @(item.Icerik.Length > 40
+                    ? item.Icerik.Remove(40) + "..."
+                    : item.Icerik )
+                </td>
                 <td>@item.OlusturulmaZamani</td>
                 <td>@item.Kategori.Ad</td>
             </tr>
